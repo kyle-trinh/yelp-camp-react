@@ -19,6 +19,7 @@ app.get('/', (req, res) => res.send('API running'));
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/campgrounds', require('./routes/api/campgrounds'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
