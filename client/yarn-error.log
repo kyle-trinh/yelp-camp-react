@@ -1,0 +1,40 @@
+Arguments: 
+  /snap/node/2058/bin/node /snap/node/2058/bin/yarn.js config get registry
+
+PATH: 
+  /home/binhthaitrinh/portfolio/YelpCamp/node_modules/.bin:/home/binhthaitrinh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  11.15.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, write
+      at writeSync (fs.js:589:3)
+      at SyncWriteStream._write (internal/fs/sync_write_stream.js:22:3)
+      at doWrite (_stream_writable.js:415:12)
+      at writeOrBuffer (_stream_writable.js:399:5)
+      at SyncWriteStream.Writable.write (_stream_writable.js:299:11)
+      at ConsoleReporter._log (/snap/node/2058/lib/cli.js:95954:17)
+      at ConsoleReporter.log (/snap/node/2058/lib/cli.js:95942:10)
+      at get (/snap/node/2058/lib/cli.js:86850:14)
+      at Object.<anonymous> (/snap/node/2058/lib/cli.js:25851:25)
+      at Generator.next (<anonymous>)
+
+npm manifest: 
+  {
+    "name": "client",
+    "version": "0.1.0",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

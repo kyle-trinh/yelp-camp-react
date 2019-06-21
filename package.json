@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client"
   },
   "author": "Binh Trinh",
   "license": "MIT",
@@ -23,5 +24,6 @@
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.19.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

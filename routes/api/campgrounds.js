@@ -31,13 +31,19 @@ router.post(
     try {
       const user = await User.findById(req.user.id).select('-password');
 
-      const newCampground = new Campground({
-        description: req.body.description,
-        title: req.body.title,
-        name: user.name,
-        avatar: user.avatar,
-        user: req.user.id
-      });
+      const { description, title, image, coverImage, price } = req.body;
+
+      const campgroundFields = {};
+
+      campgroundFields.user = req.user.id;
+      campgroundFields.title = title;
+      campgroundFields.description = description;
+
+      if (image) campgroundFields.image = image;
+      if (coverImage) campgroundFields.coverImage = coverImage;
+      if (price) campgroundFields.price = price;
+
+      const newCampground = new Campground(campgroundFields);
 
       const campground = await newCampground.save();
       res.json(campground);
@@ -81,5 +87,94 @@ router.get('/:id', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
+// @route   DELETE api/campgrounds/:id
+// @desc    Delete campground with id
+// @access  Private
+
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const campground = await Campground.findById(req.params.id);
+
+    if (!campground) {
+      return res.status(404).json({ msg: 'Campground not found' });
+    }
+
+    if (campground.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'User not authorized' });
+    }
+
+    await campground.remove();
+
+    res.json({ msg: 'Campground removed' });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Campground not found' });
+    }
+    res.status(500).send('Server error');
+  }
+});
+
+// @route   PUT api/campgrounds/:id
+// @desc    Edit campground with id
+// @access  Private
+
+router.put(
+  '/:id',
+  [
+    auth,
+    [
+      check('description', 'Description is required')
+        .not()
+        .isEmpty(),
+      check('title', 'Title is required')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      let campground = await Campground.findById(req.params.id);
+      if (!campground) {
+        return res.status(404).json({ msg: 'Campground not found' });
+      }
+
+      if (campground.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: 'User not authorized' });
+      }
+
+      const { description, title, image, coverImage, price } = req.body;
+
+      const campgroundFields = {};
+
+      campgroundFields.user = req.user.id;
+      campgroundFields.title = title;
+      campgroundFields.description = description;
+
+      if (image) campgroundFields.image = image;
+      if (coverImage) campgroundFields.coverImage = coverImage;
+      if (price) campgroundFields.price = price;
+
+      campground = await Campground.findOneAndUpdate(
+        {
+          _id: req.params.id
+        },
+        { $set: campgroundFields },
+        { new: true }
+      );
+      return res.json(campground);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  }
+);
 
 module.exports = router;
