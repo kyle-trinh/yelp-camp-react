@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <Fragment>
       <header>
-        <Navbar />
+        <Navbar className="menu" />
         <Slideshow />
       </header>
       <CampgroundList />

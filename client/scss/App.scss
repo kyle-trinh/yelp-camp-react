@@ -119,6 +119,12 @@ header {
   }
 }
 
+#menu-dark {
+  background-color: darken($secondary-color, 30);
+  padding: 1rem 2rem;
+  max-width: 100vw;
+}
+
 .section-campgrounds {
   position: relative;
   z-index: 20;
@@ -177,4 +183,46 @@ header {
       }
     }
   }
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2rem 2rem;
+}
+
+.text-primary {
+  font-size: 3rem;
+  color: darken($secondary-color, 25);
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-left: 0;
+}
+
+.form {
+  .form-group {
+    margin: 1.2rem 0;
+  }
+
+  .form-text {
+    display: block;
+    margin-top: 0.6rem;
+    color: #888;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
 }

@@ -5,6 +5,7 @@ import './App.css';
 import store from './store';
 import Landing from './components/layout/Landing';
 import Campground from './components/campground/Campground';
+import Login from './components/auth/Login';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/" component={Landing} />
           <Switch>
             <Route exact path="/campground" component={Campground} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </Fragment>
       </Router>

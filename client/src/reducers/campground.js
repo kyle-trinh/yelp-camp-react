@@ -16,6 +16,12 @@ export default function(state = initialState, action) {
         campgrounds: payload,
         loading: false
       };
+    case CAMPGROUND_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false
+      };
     default:
       return state;
   }
