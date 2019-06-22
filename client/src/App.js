@@ -3,13 +3,20 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
 import store from './store';
+import Landing from './components/layout/Landing';
+import Campground from './components/campground/Campground';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Fragment>
-        <h1>App</h1>
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Route exact path="/" component={Landing} />
+          <Switch>
+            <Route exact path="/campground" component={Campground} />
+          </Switch>
+        </Fragment>
+      </Router>
     </Provider>
   );
 };
