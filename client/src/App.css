@@ -24,10 +24,7 @@ img {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 1rem auto;
   font-size: 1.2rem;
-  display: inline-block;
   padding: 0.6rem 0.8rem;
   transition: all 0.5s ease-out; }
   .btn-primary {
@@ -117,7 +114,7 @@ header {
       transform: scale(1.03); }
   .section-campgrounds h1 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    line-height: 1.2;
     text-transform: uppercase; }
     .section-campgrounds h1:after {
       display: block;
@@ -126,6 +123,14 @@ header {
       height: 0.2rem;
       background-color: black;
       margin: 1rem auto; }
+  .section-campgrounds p {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem; }
+  .section-campgrounds .right-align {
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%; }
   .section-campgrounds .campgrounds {
     display: grid;
     max-width: 120rem;
@@ -173,3 +178,16 @@ select {
   padding: 0.8rem;
   font-size: 1.5rem;
   border: 1px solid #ccc; }
+
+.alert {
+  padding: 0.6rem;
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  transition: all 0.5s ease-out; }
+  .alert-danger {
+    background-color: red;
+    color: white; }
+  .alert-success {
+    background-color: green;
+    color: white; }

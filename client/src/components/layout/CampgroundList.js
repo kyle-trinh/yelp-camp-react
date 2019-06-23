@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCampgrounds } from '../../actions/campground';
 import Spinner from './Spinner';
+import { Link } from 'react-router-dom';
 
 const CampgroundList = ({
   getCampgrounds,
@@ -13,6 +14,14 @@ const CampgroundList = ({
   return (
     <div className="section-campgrounds">
       <h1>Campgrounds</h1>
+      <p>View our hand-picked campgrounds from all over the world!</p>
+      <div className="right-align">
+        <Link to="/campgrounds/new" className="btn btn-primary">
+          Add new campground
+        </Link>
+        <p>asdasd</p>
+      </div>
+
       {loading ? (
         <Spinner />
       ) : (

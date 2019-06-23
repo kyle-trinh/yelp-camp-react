@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import { connect } from 'react-redux';
-import { login } from '../../actions/auth';
 import Alert from '../layout/Alert';
 
-const Login = ({ login, isAuthenticated }) => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+const Register = ({ setAlert, register, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
 
-  const { email, password } = formData;
+  const { name, email, password, password2 } = formData;
 
-  const onChange = e => {
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const onSubmit = e => {
     e.preventDefault();
-    login(email, password);
+    if (password !== password2) {
+      setAlert('Password do not match', 'danger');
+    } else {
+      register({ name, email, password });
+    }
   };
 
-  // Redirect if logged in
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
@@ -37,26 +45,44 @@ const Login = ({ login, isAuthenticated }) => {
         <form className="form" onSubmit={e => onSubmit(e)}>
           <div className="form-group">
             <input
-              type="email"
-              placeholder="Email address"
-              name="email"
-              required
-              value={email}
+              value={name}
               onChange={e => onChange(e)}
+              type="text"
+              placeholder="Name"
+              name="name"
             />
           </div>
           <div className="form-group">
             <input
+              value={email}
+              onChange={e => onChange(e)}
+              type="email"
+              placeholder="Email address"
+              name="email"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              value={password}
+              onChange={e => onChange(e)}
               type="password"
               placeholder="Password"
               name="password"
-              minLength="6"
-              value={password}
+              //   minLength="6"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              value={password2}
               onChange={e => onChange(e)}
+              type="password"
+              placeholder="Password"
+              name="password2"
+              //   minLength="6"
             />
           </div>
 
-          <input type="submit" className="btn btn-primary" value="Login" />
+          <input type="submit" className="btn btn-primary" value="register" />
         </form>
 
         <p className="lead">
@@ -73,5 +99,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { login }
-)(Login);
+  { setAlert, register }
+)(Register);

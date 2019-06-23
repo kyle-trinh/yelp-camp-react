@@ -31,10 +31,10 @@ img {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 1rem auto;
+  // justify-content: center;
+  // margin: 1rem auto;
   font-size: 1.2rem;
-  display: inline-block;
+  // display: inline-block;
   padding: 0.6rem 0.8rem;
   @include easeOut;
 
@@ -152,7 +152,7 @@ header {
 
   h1 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    line-height: 1.2;
     text-transform: uppercase;
 
     &:after {
@@ -163,6 +163,18 @@ header {
       background-color: black;
       margin: 1rem auto;
     }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem;
+  }
+
+  .right-align {
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 
   .campgrounds {
@@ -225,4 +237,22 @@ select {
   padding: 0.8rem;
   font-size: 1.5rem;
   border: 1px solid #ccc;
+}
+
+.alert {
+  padding: 0.6rem;
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  @include easeOut;
+
+  &-danger {
+    background-color: red;
+    color: white;
+  }
+
+  &-success {
+    background-color: green;
+    color: white;
+  }
 }
