@@ -18,7 +18,8 @@ const Navbar = ({
       </li>
       <li className="nav-item">
         <a onClick={logout} href="#!" className="nav-link">
-          <i className="fas fa-sign-out-alt" /> Logout
+          <i style={{ fontSize: '1.2rem' }} className="fas fa-sign-out-alt" />{' '}
+          Logout
         </a>
       </li>
     </ul>

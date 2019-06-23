@@ -17,9 +17,8 @@ const CampgroundList = ({
       <p>View our hand-picked campgrounds from all over the world!</p>
       <div className="right-align">
         <Link to="/campgrounds/new" className="btn btn-primary">
-          Add new campground
+          <i class="fas fa-plus" />Add new campground
         </Link>
-        <p>asdasd</p>
       </div>
 
       {loading ? (

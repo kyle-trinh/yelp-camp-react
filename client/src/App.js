@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
 import store from './store';
@@ -10,6 +10,8 @@ import Register from './components/auth/Register';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './routing/PrivateRoute';
+import NewCampground from './components/campground/NewCampground';
+import history from './history';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -21,11 +23,16 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <Fragment>
           <Route exact path="/" component={Landing} />
           <Switch>
             <PrivateRoute exact path="/campground" component={Campground} />
+            <PrivateRoute
+              exact
+              path="/campgrounds/new"
+              component={NewCampground}
+            />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
           </Switch>
