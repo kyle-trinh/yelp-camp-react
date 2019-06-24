@@ -30,9 +30,9 @@ img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  // align-items: center;
+  // justify-content: center;
   margin-bottom: 1rem;
   font-size: 1.2rem;
   // display: inline-block;
@@ -224,6 +224,7 @@ header {
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 4px;
       overflow: hidden;
+      position: relative;
 
       h3 {
         margin-top: 0.8rem;
@@ -339,6 +340,11 @@ select {
       font-size: 1rem;
       color: rgba(0, 0, 0, 0.4);
     }
+
+    .edit-delete {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
 
@@ -346,21 +352,19 @@ select {
   background-color: darken($secondary-color, 40);
   padding: 4rem;
 
-  .comment-action {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1.5rem;
+  .form {
+    max-width: 50rem;
+    margin: 0 auto;
   }
 
   .comment-group {
-    max-width: 90vw;
-
+    max-width: 50rem;
     margin: 0 auto;
 
     .comment {
       display: flex;
       align-items: flex-start;
-      justify-content: flex-start;
+      justify-content: space-between;
       border: 1px solid white;
       padding: 2rem;
       padding-bottom: 1rem;
@@ -374,13 +378,14 @@ select {
       }
 
       .comment-detail {
+        width: 70%;
         h4 {
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           color: darken($secondary-color, 10);
         }
 
         p {
-          font-size: 0.8rem;
+          font-size: 1rem;
           color: $primary-color;
           margin-bottom: 1rem;
         }
@@ -388,6 +393,13 @@ select {
         .btn {
           margin-right: 1rem;
         }
+      }
+
+      .time-ago {
+        color: $primary-color;
+        text-align: right;
+        font-weight: 700;
+        font-size: 1rem;
       }
     }
   }

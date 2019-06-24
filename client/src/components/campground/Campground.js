@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
-import { getCampground } from '../../actions/campground';
+import { getCampground, addLike, removeLike } from '../../actions/campground';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -9,7 +9,9 @@ import CommentList from './CommentList';
 const Campground = ({
   match,
   getCampground,
-  campground: { campground, loading }
+  campground: { campground, loading },
+  addLike,
+  removeLike
 }) => {
   useEffect(() => {
     getCampground(match.params.id);
@@ -47,6 +49,26 @@ const Campground = ({
             {' on '}
             <Moment format="YYYY/MM/DD">{campground.date}</Moment>
           </p>
+          <button
+            onClick={e => addLike(campground._id)}
+            style={{ marginRight: '1rem' }}
+            className="btn btn-primary">
+            <i className="fas fa-thumbs-up" />{' '}
+            {campground.likes.length > 0 && (
+              <span>{`    ${campground.likes.length}`}</span>
+            )}
+          </button>
+          <button
+            onClick={e => removeLike(campground._id)}
+            className="btn btn-primary">
+            <i className="fas fa-thumbs-down" />
+          </button>
+          <div className="edit-delete">
+            <button style={{ marginRight: '1rem' }} className="btn btn-primary">
+              Edit
+            </button>
+            <button className="btn btn-danger">Delete</button>
+          </div>
         </div>
 
         <div className="campground-image">
@@ -54,7 +76,10 @@ const Campground = ({
         </div>
       </section>
 
-      <CommentList comments={campground.comments} postId={campground._id} />
+      <CommentList
+        comments={campground.comments}
+        campgroundId={campground._id}
+      />
     </Fragment>
   );
 };
@@ -65,5 +90,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCampground }
+  { getCampground, addLike, removeLike }
 )(Campground);

@@ -257,4 +257,59 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/campgrounds/like/:id
+// @desc    Like a campground
+// @access  Private
+
+router.put('/like/:id', auth, async (req, res) => {
+  try {
+    const campground = await Campground.findById(req.params.id);
+
+    // check if campground has already been liked by this user
+
+    if (
+      campground.likes.filter(like => like.user.toString() === req.user.id)
+        .length > 0
+    ) {
+      return res.status(400).json({ msg: 'Campground already liked' });
+    }
+
+    campground.likes.unshift({ user: req.user.id });
+
+    await campground.save();
+
+    res.json(campground.likes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// @route   PUT api/campgrounds/unlike/:id
+// @desc    UnLike a campground
+// @access  Private
+
+router.put('/unlike/:id', auth, async (req, res) => {
+  try {
+    const campground = await Campground.findById(req.params.id);
+
+    if (
+      campground.likes.filter(like => like.user.toString() === req.user.id)
+        .length === 0
+    ) {
+      return res.status(400).json({ msg: 'Campground has not yet been liked' });
+    }
+
+    const removeIndex = campground.likes
+      .map(like => like.user.toString())
+      .indexOf(req.user.id);
+    campground.likes.splice(removeIndex, 1);
+    await campground.save();
+    res.json(campground.likes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;

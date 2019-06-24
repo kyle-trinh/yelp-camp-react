@@ -35,6 +35,9 @@ const CampgroundList = ({
                 className="btn btn-primary">
                 More info
               </Link>
+              {/* <a className="btn btn-danger abcdef" href="#!">
+                X
+              </a> */}
               {/* <a className="btn btn-primary" href="#!">
                 More info
               </a> */}

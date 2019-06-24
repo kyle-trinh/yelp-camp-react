@@ -2,7 +2,9 @@ import {
   GET_CAMPGROUNDS,
   CAMPGROUND_ERROR,
   GET_CAMPGROUND,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  ADD_COMMENT,
+  UPDATE_LIKES
 } from '../actions/types';
 
 const initialState = {
@@ -33,6 +35,15 @@ export default function(state = initialState, action) {
         error: payload,
         loading: false
       };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          comments: payload
+        },
+        loading: false
+      };
     case REMOVE_COMMENT:
       return {
         ...state,
@@ -41,7 +52,15 @@ export default function(state = initialState, action) {
           comments: state.campground.comments.filter(
             comment => comment._id !== payload
           )
-        }
+        },
+        loading: false
+      };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        campground: { ...state.campground, likes: payload.likes },
+
+        loading: false
       };
     default:
       return state;
