@@ -1,8 +1,10 @@
 import React, { useEffect, Fragment } from 'react';
 import { getCampground } from '../../actions/campground';
+import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import Navbar from '../layout/Navbar';
+import CommentList from './CommentList';
 
 const Campground = ({
   match,
@@ -40,12 +42,19 @@ const Campground = ({
             provident iure molestias rerum doloribus amet accusamus harum, animi
             accusantium perspiciatis soluta tempora.
           </p>
+          <p className="small-text">
+            Submitted by {campground.name ? campground.name : 'Unknown'},
+            {' on '}
+            <Moment format="YYYY/MM/DD">{campground.date}</Moment>
+          </p>
         </div>
 
         <div className="campground-image">
           <img src={campground.image} alt={campground.title} />
         </div>
       </section>
+
+      <CommentList comments={campground.comments} postId={campground._id} />
     </Fragment>
   );
 };

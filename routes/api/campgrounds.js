@@ -4,6 +4,7 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const Campground = require('../../models/Campground');
+const Comment = require('../../models/Comment');
 
 // @route   POST api/campgrounds
 // @desc    Create a campground
@@ -38,6 +39,7 @@ router.post(
       campgroundFields.user = req.user.id;
       campgroundFields.title = title;
       campgroundFields.description = description;
+      campgroundFields.name = user.name;
 
       if (image) campgroundFields.image = image;
       if (coverImage) campgroundFields.coverImage = coverImage;
@@ -60,7 +62,9 @@ router.post(
 
 router.get('/', async (req, res) => {
   try {
-    const campgrounds = await Campground.find().sort({ date: -1 });
+    const campgrounds = await Campground.find()
+      .sort({ date: -1 })
+      .populate('comments');
     res.json(campgrounds);
   } catch (err) {
     console.error(err.message);
@@ -74,7 +78,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const campground = await Campground.findById(req.params.id);
+    const campground = await Campground.findById(req.params.id).populate(
+      'comments'
+    );
     if (!campground) {
       return res.status(404).json({ msg: 'Campground not found' });
     }
@@ -176,5 +182,79 @@ router.put(
     }
   }
 );
+
+// @route   POST api/campgrounds/comment/:id
+// @desc    Comment on a campground
+// @access  Private
+
+router.post(
+  '/comment/:id',
+  [
+    auth,
+    [
+      check('text', 'Text is required')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ error: errors.array() });
+    }
+
+    try {
+      const user = await User.findById(req.user.id).select('-password');
+      const campground = await Campground.findById(req.params.id).populate(
+        'comments'
+      );
+
+      const newComment = new Comment({
+        text: req.body.text,
+        name: user.name,
+        author: req.user.id,
+        avatar: user.vatar
+      });
+
+      const comment = await newComment.save();
+      campground.comments.unshift(comment);
+
+      await campground.save();
+
+      res.json(campground.comments);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  }
+);
+
+// @route   DELETE api/campgrounds/comment/:id/:comment_id
+// @desc    Delete a comment on post
+// @access  Private
+router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
+  try {
+    const campground = await Campground.findById(req.params.id);
+    const comment = await Comment.findById(req.params.comment_id);
+
+    if (!comment) {
+      return res.status(404).json({ msg: 'Comment does not exist' });
+    }
+
+    if (comment.author.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'User not authorized' });
+    }
+
+    await comment.remove();
+
+    res.json({ msg: 'Comment removed' });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Not found' });
+    }
+    res.status(500).send('Server error');
+  }
+});
 
 module.exports = router;

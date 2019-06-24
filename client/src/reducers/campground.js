@@ -1,7 +1,8 @@
 import {
   GET_CAMPGROUNDS,
   CAMPGROUND_ERROR,
-  GET_CAMPGROUND
+  GET_CAMPGROUND,
+  REMOVE_COMMENT
 } from '../actions/types';
 
 const initialState = {
@@ -31,6 +32,16 @@ export default function(state = initialState, action) {
         ...state,
         error: payload,
         loading: false
+      };
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          comments: state.campground.comments.filter(
+            comment => comment._id !== payload
+          )
+        }
       };
     default:
       return state;

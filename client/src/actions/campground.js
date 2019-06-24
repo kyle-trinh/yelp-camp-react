@@ -3,7 +3,8 @@ import {
   GET_CAMPGROUNDS,
   CAMPGROUND_ERROR,
   CREATE_CAMPGROUND,
-  GET_CAMPGROUND
+  GET_CAMPGROUND,
+  REMOVE_COMMENT
 } from './types';
 import { setAlert } from './alert';
 import history from '../history';
@@ -57,6 +58,26 @@ export const getCampground = id => async dispatch => {
       type: GET_CAMPGROUND,
       payload: res.data
     });
+  } catch (err) {
+    dispatch({
+      type: CAMPGROUND_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Delete comment
+export const deleteComment = (campgroundId, commentId) => async dispatch => {
+  try {
+    const res = await axios.delete(
+      `/api/campgrounds/comment/${campgroundId}/${commentId}`
+    );
+    dispatch({
+      type: REMOVE_COMMENT,
+      payload: commentId
+    });
+
+    dispatch(setAlert('Comment removed', 'success'));
   } catch (err) {
     dispatch({
       type: CAMPGROUND_ERROR,

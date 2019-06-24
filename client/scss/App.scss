@@ -47,6 +47,21 @@ img {
       background-color: darken($secondary-color, 5);
     }
   }
+
+  &-invert {
+    background-color: $primary-color;
+    color: darken($secondary-color, 20);
+  }
+
+  &-danger {
+    background-color: red;
+    color: $primary-color;
+  }
+
+  &-sm {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
 }
 
 header {
@@ -317,6 +332,63 @@ select {
     p {
       font-size: 1.3rem;
       line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .small-text {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.comment-section {
+  background-color: darken($secondary-color, 40);
+  padding: 4rem;
+
+  .comment-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+
+  .comment-group {
+    max-width: 90vw;
+
+    margin: 0 auto;
+
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border: 1px solid white;
+      padding: 2rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+
+      i {
+        font-size: 2.5rem;
+        color: $primary-color;
+        margin-right: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      .comment-detail {
+        h4 {
+          font-size: 1.4rem;
+          color: darken($secondary-color, 10);
+        }
+
+        p {
+          font-size: 0.8rem;
+          color: $primary-color;
+          margin-bottom: 1rem;
+        }
+
+        .btn {
+          margin-right: 1rem;
+        }
+      }
     }
   }
 }

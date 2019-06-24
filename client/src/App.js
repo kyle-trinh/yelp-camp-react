@@ -30,7 +30,7 @@ const App = () => {
             <Route exact path="/campgrounds/:id" component={Campground} />
             <PrivateRoute
               exact
-              path="/campgrounds/new"
+              path="/add-campground"
               component={NewCampground}
             />
             <Route exact path="/login" component={Login} />

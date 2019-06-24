@@ -35,6 +35,15 @@ img {
     color: #fff; }
     .btn-primary:hover {
       background-color: #96c5e1; }
+  .btn-invert {
+    background-color: #fff;
+    color: #5aa4d1; }
+  .btn-danger {
+    background-color: red;
+    color: #fff; }
+  .btn-sm {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem; }
 
 header {
   background-color: black;
@@ -241,4 +250,41 @@ select {
       text-transform: uppercase; }
     .campground-detail .campground-description p {
       font-size: 1.3rem;
-      line-height: 2; }
+      line-height: 2;
+      margin-bottom: 1.5rem; }
+    .campground-detail .campground-description .small-text {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.4); }
+
+.comment-section {
+  background-color: #2b709a;
+  padding: 4rem; }
+  .comment-section .comment-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem; }
+  .comment-section .comment-group {
+    max-width: 90vw;
+    margin: 0 auto; }
+    .comment-section .comment-group .comment {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border: 1px solid white;
+      padding: 2rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem; }
+      .comment-section .comment-group .comment i {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-right: 2rem;
+        margin-top: 0.5rem; }
+      .comment-section .comment-group .comment .comment-detail h4 {
+        font-size: 1.4rem;
+        color: #82badc; }
+      .comment-section .comment-group .comment .comment-detail p {
+        font-size: 0.8rem;
+        color: #fff;
+        margin-bottom: 1rem; }
+      .comment-section .comment-group .comment .comment-detail .btn {
+        margin-right: 1rem; }
