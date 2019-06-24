@@ -27,7 +27,7 @@ const App = () => {
         <Fragment>
           <Route exact path="/" component={Landing} />
           <Switch>
-            <PrivateRoute exact path="/campground" component={Campground} />
+            <Route exact path="/campgrounds/:id" component={Campground} />
             <PrivateRoute
               exact
               path="/campgrounds/new"

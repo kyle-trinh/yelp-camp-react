@@ -1,4 +1,8 @@
-import { GET_CAMPGROUNDS, CAMPGROUND_ERROR } from '../actions/types';
+import {
+  GET_CAMPGROUNDS,
+  CAMPGROUND_ERROR,
+  GET_CAMPGROUND
+} from '../actions/types';
 
 const initialState = {
   campgrounds: [],
@@ -14,6 +18,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         campgrounds: payload,
+        loading: false
+      };
+    case GET_CAMPGROUND:
+      return {
+        ...state,
+        campground: payload,
         loading: false
       };
     case CAMPGROUND_ERROR:

@@ -17,7 +17,8 @@ const CampgroundList = ({
       <p>View our hand-picked campgrounds from all over the world!</p>
       <div className="right-align">
         <Link to="/campgrounds/new" className="btn btn-primary">
-          <i class="fas fa-plus" />Add new campground
+          <i class="fas fa-plus" />
+          Add new campground
         </Link>
       </div>
 
@@ -29,9 +30,14 @@ const CampgroundList = ({
             <div key={campground._id} className="col-1-of-3">
               <img src={campground.image} alt={campground.title} />
               <h3>{campground.title}</h3>
-              <a className="btn btn-primary" href="#!">
+              <Link
+                to={`/campgrounds/${campground._id}`}
+                className="btn btn-primary">
                 More info
-              </a>
+              </Link>
+              {/* <a className="btn btn-primary" href="#!">
+                More info
+              </a> */}
             </div>
           ))}
         </div>

@@ -28,9 +28,9 @@ const Navbar = ({
   const guestLinks = (
     <ul className="menu-nav">
       <li className="nav-item">
-        <a href="#!" className="nav-link">
+        <Link to="/" className="nav-link">
           Home
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
         <Link to="/campground" className="nav-link">

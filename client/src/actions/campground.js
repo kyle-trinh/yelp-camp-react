@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { GET_CAMPGROUNDS, CAMPGROUND_ERROR, CREATE_CAMPGROUND } from './types';
+import {
+  GET_CAMPGROUNDS,
+  CAMPGROUND_ERROR,
+  CREATE_CAMPGROUND,
+  GET_CAMPGROUND
+} from './types';
 import { setAlert } from './alert';
 import history from '../history';
 
@@ -36,6 +41,22 @@ export const createCampground = formData => async dispatch => {
     });
     setTimeout(() => history.push('/'), 3000);
     dispatch(setAlert('Campground Created', 'success'));
+  } catch (err) {
+    dispatch({
+      type: CAMPGROUND_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Get Campground
+export const getCampground = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/campgrounds/${id}`);
+    dispatch({
+      type: GET_CAMPGROUND,
+      payload: res.data
+    });
   } catch (err) {
     dispatch({
       type: CAMPGROUND_ERROR,

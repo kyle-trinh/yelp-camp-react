@@ -1,4 +1,5 @@
 @import 'config';
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,7 +8,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 67.5%;
   line-height: 1.5;
   background-color: #fff;
@@ -52,6 +53,26 @@ header {
   background-color: black;
   width: 100%;
   height: 100vh;
+
+  .title-text-box {
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    z-index: 2;
+    font-size: 3.5rem;
+  }
+
+  .campground-cover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }
 
 .bg {
@@ -254,5 +275,48 @@ select {
   &-success {
     background-color: green;
     color: white;
+  }
+}
+
+.campground-detail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  background-color: $primary-color;
+  padding: 5rem;
+  min-height: 100vh;
+  max-width: 80vw;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .campground-description {
+    align-self: center;
+
+    h2 {
+      text-transform: uppercase;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: $primary-color;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: rgba(0, 0, 0, 0.6);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 2;
+    }
   }
 }

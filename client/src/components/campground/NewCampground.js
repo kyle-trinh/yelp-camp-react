@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navbar from '../layout/Navbar';
-import { Link } from 'react-router-dom';
 import { createCampground } from '../../actions/campground';
 import { connect } from 'react-redux';
 import Alert from '../layout/Alert';
