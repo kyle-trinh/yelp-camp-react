@@ -4,7 +4,8 @@ import {
   GET_CAMPGROUND,
   REMOVE_COMMENT,
   ADD_COMMENT,
-  UPDATE_LIKES
+  UPDATE_LIKES,
+  DELETE_CAMPGROUND
 } from '../actions/types';
 
 const initialState = {
@@ -27,6 +28,14 @@ export default function(state = initialState, action) {
       return {
         ...state,
         campground: payload,
+        loading: false
+      };
+    case DELETE_CAMPGROUND:
+      return {
+        ...state,
+        campgrounds: state.campgrounds.filter(
+          campground => campground._id !== payload
+        ),
         loading: false
       };
     case CAMPGROUND_ERROR:

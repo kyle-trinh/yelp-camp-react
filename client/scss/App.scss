@@ -45,7 +45,7 @@ img {
     color: $primary-color;
 
     &:hover {
-      background-color: darken($secondary-color, 5);
+      background-color: darken($secondary-color, 10);
     }
   }
 
@@ -422,7 +422,11 @@ footer {
 
   h1 {
     color: $primary-color;
-    font-size: 3rem;
-    line-height: 2;
+    font-size: 3.5rem;
+    line-height: 1.8;
+  }
+
+  .btn {
+    box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.6);
   }
 }

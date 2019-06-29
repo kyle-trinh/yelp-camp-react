@@ -1,5 +1,10 @@
 import React, { useEffect, Fragment } from 'react';
-import { getCampground, addLike, removeLike } from '../../actions/campground';
+import {
+  getCampground,
+  addLike,
+  removeLike,
+  deleteCampground
+} from '../../actions/campground';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -11,7 +16,8 @@ const Campground = ({
   getCampground,
   campground: { campground, loading },
   addLike,
-  removeLike
+  removeLike,
+  deleteCampground
 }) => {
   useEffect(() => {
     getCampground(match.params.id);
@@ -67,7 +73,11 @@ const Campground = ({
             <button style={{ marginRight: '1rem' }} className="btn btn-primary">
               Edit
             </button>
-            <button className="btn btn-danger">Delete</button>
+            <button
+              onClick={e => deleteCampground(campground._id)}
+              className="btn btn-danger">
+              Delete
+            </button>
           </div>
         </div>
 
@@ -90,5 +100,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCampground, addLike, removeLike }
+  { getCampground, addLike, removeLike, deleteCampground }
 )(Campground);

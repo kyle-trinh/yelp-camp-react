@@ -2620,7 +2620,7 @@ img {
     background-color: #5aa4d1;
     color: #fff; }
     .btn-primary:hover {
-      background-color: #96c5e1; }
+      background-color: #82badc; }
   .btn-invert {
     background-color: #fff;
     color: #5aa4d1; }
@@ -2899,5 +2899,7 @@ footer {
   padding-top: 35vh; }
   .hero-text h1 {
     color: #fff;
-    font-size: 3rem;
-    line-height: 2; }
+    font-size: 3.5rem;
+    line-height: 1.8; }
+  .hero-text .btn {
+    box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.6); }

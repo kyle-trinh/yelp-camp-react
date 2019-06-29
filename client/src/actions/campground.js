@@ -6,7 +6,8 @@ import {
   GET_CAMPGROUND,
   REMOVE_COMMENT,
   ADD_COMMENT,
-  UPDATE_LIKES
+  UPDATE_LIKES,
+  DELETE_CAMPGROUND
 } from './types';
 import { setAlert } from './alert';
 import history from '../history';
@@ -60,6 +61,24 @@ export const getCampground = id => async dispatch => {
       type: GET_CAMPGROUND,
       payload: res.data
     });
+  } catch (err) {
+    dispatch({
+      type: CAMPGROUND_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Delete campground
+export const deleteCampground = id => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/campgrounds/${id}`);
+    dispatch({
+      type: DELETE_CAMPGROUND,
+      payload: id
+    });
+    dispatch(setAlert('Campground removed', 'success'));
+    history.push('/');
   } catch (err) {
     dispatch({
       type: CAMPGROUND_ERROR,
