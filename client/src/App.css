@@ -2712,7 +2712,8 @@ header {
   background-color: white;
   color: black;
   padding: 5rem;
-  text-align: center; }
+  text-align: center;
+  min-height: 100vh; }
   .section-campgrounds img {
     width: 100%;
     border-top-left-radius: 4px;
@@ -2892,3 +2893,11 @@ footer {
   font-weight: 700;
   text-align: center;
   padding: 1rem; }
+
+.hero-text {
+  text-align: center;
+  padding-top: 35vh; }
+  .hero-text h1 {
+    color: #fff;
+    font-size: 3rem;
+    line-height: 2; }

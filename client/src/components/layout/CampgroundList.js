@@ -12,7 +12,7 @@ const CampgroundList = ({
     getCampgrounds();
   }, [getCampgrounds]);
   return (
-    <div className="section-campgrounds">
+    <div className="section-campgrounds" id="campground-section">
       <h1>Campgrounds</h1>
       <p>View our hand-picked campgrounds from all over the world!</p>
       <div className="right-align">

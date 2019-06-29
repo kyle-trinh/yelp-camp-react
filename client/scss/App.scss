@@ -169,6 +169,7 @@ header {
   color: black;
   padding: 5rem;
   text-align: center;
+  min-height: 100vh;
 
   img {
     width: 100%;
@@ -413,4 +414,15 @@ footer {
   font-weight: 700;
   text-align: center;
   padding: 1rem;
+}
+
+.hero-text {
+  text-align: center;
+  padding-top: 35vh;
+
+  h1 {
+    color: $primary-color;
+    font-size: 3rem;
+    line-height: 2;
+  }
 }
