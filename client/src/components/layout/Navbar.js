@@ -11,11 +11,12 @@ const Navbar = ({
 }) => {
   const authLinks = (
     <ul className="menu-nav">
-      <li className="nav-item">
-        <Link to="/campground" className="nav-link">
+      {/* <li className="nav-item">
+        
+        <a href="#campground" className="nav-link">
           Campgrounds
-        </Link>
-      </li>
+        </a>
+      </li> */}
       <li className="nav-item">
         <a onClick={logout} href="#!" className="nav-link">
           <i style={{ fontSize: '1.2rem' }} className="fas fa-sign-out-alt" />{' '}
@@ -33,13 +34,14 @@ const Navbar = ({
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/campground" className="nav-link">
-          Campgrounds
-        </Link>
-      </li>
-      <li className="nav-item">
         <Link to="/login" className="nav-link">
           Login
+        </Link>
+      </li>
+
+      <li className="nav-item">
+        <Link to="/register" className="nav-link">
+          Register
         </Link>
       </li>
     </ul>
@@ -47,7 +49,10 @@ const Navbar = ({
 
   return (
     <nav className={className} id={id}>
-      <i className="fas fa-air-freshener" />
+      <Link to="/" style={{ color: 'white' }}>
+        <i className="fas fa-air-freshener" />
+      </Link>
+
       {!loading ? (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       ) : null}

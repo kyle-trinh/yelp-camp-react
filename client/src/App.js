@@ -12,7 +12,8 @@ import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './routing/PrivateRoute';
 import NewCampground from './components/campground/NewCampground';
 import history from './history';
-
+import Footer from './components/layout/Footer';
+import ScrollToTop from './components/layout/ScrollToTop';
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -24,19 +25,22 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <Fragment>
-          <Route exact path="/" component={Landing} />
-          <Switch>
-            <Route exact path="/campgrounds/:id" component={Campground} />
-            <PrivateRoute
-              exact
-              path="/add-campground"
-              component={NewCampground}
-            />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-          </Switch>
-        </Fragment>
+        <ScrollToTop>
+          <Fragment>
+            <Route exact path="/" component={Landing} />
+            <Switch>
+              <Route exact path="/campgrounds/:id" component={Campground} />
+              <PrivateRoute
+                exact
+                path="/add-campground"
+                component={NewCampground}
+              />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+            </Switch>
+            <Footer />
+          </Fragment>
+        </ScrollToTop>
       </Router>
     </Provider>
   );

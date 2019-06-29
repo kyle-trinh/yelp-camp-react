@@ -35,7 +35,7 @@ const Campground = ({
         />
       </header>
       <section className="campground-detail">
-        <div className="campground-description">
+        <div className="campground-description wow bounceInUp">
           <h2>About</h2>
           <h1>{campground.title}</h1>
           <p>
@@ -71,7 +71,7 @@ const Campground = ({
           </div>
         </div>
 
-        <div className="campground-image">
+        <div className="campground-image wow slideInRight">
           <img src={campground.image} alt={campground.title} />
         </div>
       </section>

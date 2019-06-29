@@ -37,10 +37,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <Navbar className="menu" id="menu-dark" />
       <section className="container">
         <Alert />
-        <h1 className="text-primary">Sign in</h1>
+        <h1 className="text-primary">Register</h1>
         <p className="lead">
           {' '}
-          <i className="fas fa-user" /> Sign into your account{' '}
+          <i className="fas fa-user" /> Please fill this information{' '}
         </p>
         <form className="form" onSubmit={e => onSubmit(e)}>
           <div className="form-group">
