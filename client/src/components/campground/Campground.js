@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import Navbar from '../layout/Navbar';
-import CommentList from './CommentList';
+import CommentList from './comment/CommentList';
 
 const Campground = ({
   match,

@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import { deleteComment } from '../../../actions/campground';
 import Moment from 'react-moment';
 
-const Comment = ({ comment }) => {
+const Comment = ({ comment, deleteComment, auth, campgroundId }) => {
   return (
     <div key={comment._id} className="comment">
       <i className="fas fa-user" />
@@ -13,15 +15,12 @@ const Comment = ({ comment }) => {
             auth.loading === false &&
             auth.user._id === comment.author && (
               <Fragment>
-                <a href="#!" className="btn btn-sm btn-invert">
-                  Edit
-                </a>
-                <a
+                <button
                   href="#!"
                   onClick={e => deleteComment(campgroundId, comment._id)}
                   className="btn btn-sm btn-danger">
                   Delete
-                </a>
+                </button>
               </Fragment>
             )}
         </div>
@@ -33,4 +32,11 @@ const Comment = ({ comment }) => {
   );
 };
 
-export default Comment;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteComment }
+)(Comment);

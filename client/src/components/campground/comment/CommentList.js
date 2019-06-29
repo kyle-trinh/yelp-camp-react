@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { deleteComment, addComment } from '../../actions/campground';
-import Alert from '../layout/Alert';
-import Moment from 'react-moment';
+import { addComment } from '../../../actions/campground';
+import Alert from '../../layout/Alert';
 import Comment from './Comment';
 
 const CommentList = ({
   comments,
-  deleteComment,
+
   addComment,
   campgroundId,
   auth
@@ -46,7 +45,7 @@ const CommentList = ({
 
         <div className="comment-group">
           {comments.map(comment => (
-            <Comment comment={comment} />
+            <Comment comment={comment} campgroundId={campgroundId} />
           ))}
         </div>
       </section>
@@ -60,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteComment, addComment }
+  { addComment }
 )(CommentList);
