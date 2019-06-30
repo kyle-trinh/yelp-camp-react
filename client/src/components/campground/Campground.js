@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import {
   getCampground,
   addLike,
@@ -10,7 +10,9 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import Navbar from '../layout/Navbar';
 import CommentList from './comment/CommentList';
-
+import Modal from '../Modal';
+import history from '../../history';
+import {Link} from 'react-router-dom';
 const Campground = ({
   match,
   getCampground,
@@ -22,8 +24,19 @@ const Campground = ({
   useEffect(() => {
     getCampground(match.params.id);
   }, [getCampground, match.params.id]);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const actions = (
+    <Fragment>
+      <button onClick={e => setShowModal(false)} className="btn btn-primary">Cancel</button>
+          <button onClick={e => deleteCampground(campground._id)} className="btn btn-danger">Delete</button>
+    </Fragment>
+  )
   return loading || campground === null ? (
-    <Spinner />
+    <div style={{height: '100vh', paddingTop: '40vh'}}>
+      <Spinner />
+    </div>
   ) : (
     <Fragment>
       <header>
@@ -44,12 +57,7 @@ const Campground = ({
         <div className="campground-description wow bounceInUp">
           <h2>About</h2>
           <h1>{campground.title}</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error,
-            consectetur suscipit eum ut, consequatur deleniti earum vel
-            provident iure molestias rerum doloribus amet accusamus harum, animi
-            accusantium perspiciatis soluta tempora.
-          </p>
+          <p>{campground.description}</p>
           <p className="small-text">
             Submitted by {campground.name ? campground.name : 'Unknown'},
             {' on '}
@@ -73,11 +81,13 @@ const Campground = ({
             <button style={{ marginRight: '1rem' }} className="btn btn-primary">
               Edit
             </button>
-            <button
-              onClick={e => deleteCampground(campground._id)}
+            <Link
+            // to={`/campgrounds/delete-campground/${campground._id}`}
+              // onClick={e => deleteCampground(campground._id)}
+              onClick={e => setShowModal(true)}
               className="btn btn-danger">
               Delete
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -85,6 +95,11 @@ const Campground = ({
           <img src={campground.image} alt={campground.title} />
         </div>
       </section>
+
+      <Modal className={`modal ${showModal ? 'show' : ''}`} title="Delete Campground" content="Are you sure you want to delete this campground?" actions={actions} onDismiss={() => {
+history.push(`/campgrounds/${campground._id}`);
+setShowModal(false);
+      } }/>
 
       <CommentList
         comments={campground.comments}

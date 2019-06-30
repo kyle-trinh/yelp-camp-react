@@ -1,0 +1,21 @@
+// Widescreens
+@include mediaXL {
+    
+}
+
+// Desktops & laptops
+@include mediaLg {
+    .campground-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Tables & small laptops
+@include mediaMd {
+  
+}
+
+// Smart phones
+@include mediaSm {
+
+}

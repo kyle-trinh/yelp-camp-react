@@ -6,7 +6,8 @@ import Moment from 'react-moment';
 const Comment = ({ comment, deleteComment, auth, campgroundId }) => {
   return (
     <div key={comment._id} className="comment">
-      <i className="fas fa-user" />
+      <img src={comment.avatar} />
+      {/* <i className="fas fa-user" /> */}
       <div className="comment-detail">
         <h4>{comment.name}</h4>
         <p>{comment.text}</p>

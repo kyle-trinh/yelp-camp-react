@@ -213,7 +213,7 @@ router.post(
         text: req.body.text,
         name: user.name,
         author: req.user.id,
-        avatar: user.vatar
+        avatar: user.avatar
       });
 
       const comment = await newComment.save();

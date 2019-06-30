@@ -35,6 +35,7 @@ const App = () => {
                 path="/add-campground"
                 component={NewCampground}
               />
+              
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
             </Switch>

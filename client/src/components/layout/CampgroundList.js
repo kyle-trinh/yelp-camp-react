@@ -27,7 +27,7 @@ const CampgroundList = ({
       ) : (
         <div className="campgrounds">
           {campgrounds.map(campground => (
-            <div key={campground._id} className="col-1-of-3">
+            <div key={campground._id} className="col-1-of-3 wow fadeInLeft">
               <img src={campground.image} alt={campground.title} />
               <h3>{campground.title}</h3>
               <Link

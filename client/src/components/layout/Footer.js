@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 const Footer = ({ campground }) => {
-  return campground.loading || campground.campground === null ? null : (
+  return  (
     <Fragment>
       <footer>Copyright &copy; 2019 by Binh Trinh. All rights reserved.</footer>
-    </Fragment>
-  );
+  </Fragment>) 
+  
 };
 
 const mapStateToProps = state => ({
