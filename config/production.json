@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://binhthaitrinh:Kakakak2@cluster0-4llzv.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "This is a YelpCamp Web App"
+}
