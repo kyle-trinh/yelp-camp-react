@@ -25,7 +25,7 @@ const CampgroundList = ({
       {loading ? (
         <Spinner />
       ) : (
-        <div className="campgrounds">
+        <div className="campgrounds" id="cps">
           {campgrounds.map(campground => (
             <div key={campground._id} className="col-1-of-3 wow fadeInLeft">
               <img src={campground.image} alt={campground.title} />

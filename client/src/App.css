@@ -2659,11 +2659,7 @@ header {
     background-attachment: fixed;
     -webkit-background-attachment: fixed;
     -moz-background-attachment: fixed;
-    -o-background-attachment: fixed;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%; }
+    -o-background-attachment: fixed; }
 
 .bg {
   position: absolute;
@@ -2828,7 +2824,6 @@ select {
   grid-gap: 5rem;
   background-color: #fff;
   padding: 5rem;
-  min-height: 100vh;
   max-width: 80vw;
   margin: 0 auto; }
   .campground-detail img {
@@ -2975,7 +2970,9 @@ footer {
 @media screen and (min-width: 1171px) {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  grid-template-areas: 'content image'; }
+  grid-template-areas: 'content image';
+  .campgrounds {
+    grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .campground-detail {
@@ -2996,15 +2993,55 @@ footer {
       .campground-detail .campground-description h1 {
         margin-bottom: 0.6rem; }
       .campground-detail .campground-description p {
-        margin-bottom: 0.5rem; } }
+        margin-bottom: 0.5rem; }
+  .section-campgrounds .campgrounds {
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 768px) {
   .campground-detail {
     grid-template-columns: 1fr;
+    padding: 0rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    grid-gap: 2rem;
     grid-template-areas: 'image' 'content'; }
     .campground-detail img {
       grid-area: image;
       height: 300px; }
     .campground-detail .campground-description {
       grid-area: content;
-      text-align: center; } }
+      text-align: center; }
+      .campground-detail .campground-description h2 {
+        margin-bottom: 0.8rem; }
+      .campground-detail .campground-description h1 {
+        margin-bottom: 0.2rem; }
+      .campground-detail .campground-description p {
+        margin-bottom: 0.5rem; }
+  .section-campgrounds .campgrounds {
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 500px) {
+  .campground-detail {
+    grid-template-columns: 1fr;
+    padding: 0rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    grid-gap: 2rem;
+    grid-template-areas: 'image' 'content'; }
+    .campground-detail img {
+      grid-area: image;
+      height: 300px; }
+    .campground-detail .campground-description {
+      grid-area: content;
+      text-align: center; }
+      .campground-detail .campground-description h2 {
+        margin-bottom: 0.8rem; }
+      .campground-detail .campground-description h1 {
+        margin-bottom: 0.2rem; }
+      .campground-detail .campground-description p {
+        margin-bottom: 0.5rem; }
+  h1 {
+    font-size: 6rem;
+    line-height: 1.3; }
+  .section-campgrounds .campgrounds {
+    grid-template-columns: 1fr; } }

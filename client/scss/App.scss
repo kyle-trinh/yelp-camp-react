@@ -97,10 +97,6 @@ header {
     -webkit-background-attachment: fixed;
     -moz-background-attachment: fixed;
     -o-background-attachment: fixed;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
   }
 }
 
@@ -316,7 +312,7 @@ select {
   grid-gap: 5rem;
   background-color: $primary-color;
   padding: 5rem;
-  min-height: 100vh;
+
   max-width: 80vw;
   margin: 0 auto;
 
