@@ -2653,7 +2653,13 @@ header {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-attachment: fixed; }
+    -webkit-background-position: center;
+    -moz-background-position: center;
+    -o-background-position: center;
+    background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    -o-background-attachment: fixed; }
 
 .bg {
   position: absolute;
