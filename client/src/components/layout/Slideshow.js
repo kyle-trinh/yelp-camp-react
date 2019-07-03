@@ -5,18 +5,23 @@ const slides = [
   {
     id: 0,
     url:
-      'photo-1544511916-0148ccdeb877?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1901&q=80i'
+      'photo-1431794062232-2a99a5431c6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=20'
   },
   {
     id: 1,
     url:
-      'photo-1544572571-ab94fd872ce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1534&q=80'
+      'photo-1493962621260-74cc5a3baf89?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
   },
   {
     id: 2,
-    url: 'reserve/bnW1TuTV2YGcoh1HyWNQ_IMG_0207.JPG?ixlib=rb-1.2.1&w=1534&q=80'
+    url:
+      'photo-1508144753681-9986d4df99b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
   },
-  { id: 3, url: 'photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80' }
+  {
+    id: 3,
+    url:
+      'photo-1508182314998-3bd49473002f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
+  }
 ];
 
 const Slideshow = () => {
