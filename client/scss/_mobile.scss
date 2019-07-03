@@ -1,6 +1,8 @@
 // Widescreens
 @include mediaXL {
-    
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  grid-template-areas: 'content image';
 }
 
 // Desktops & laptops
@@ -8,6 +10,7 @@
     .campground-detail {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
+        grid-gap: 0rem;
         grid-template-areas: 
         'image'
         'content';
