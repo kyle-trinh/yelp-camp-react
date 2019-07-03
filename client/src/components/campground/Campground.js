@@ -12,7 +12,7 @@ import Navbar from '../layout/Navbar';
 import CommentList from './comment/CommentList';
 import Modal from '../Modal';
 import history from '../../history';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Campground = ({
   match,
   getCampground,
@@ -29,12 +29,18 @@ const Campground = ({
 
   const actions = (
     <Fragment>
-      <button onClick={e => setShowModal(false)} className="btn btn-primary">Cancel</button>
-          <button onClick={e => deleteCampground(campground._id)} className="btn btn-danger">Delete</button>
+      <button onClick={e => setShowModal(false)} className="btn btn-primary">
+        Cancel
+      </button>
+      <button
+        onClick={e => deleteCampground(campground._id)}
+        className="btn btn-danger">
+        Delete
+      </button>
     </Fragment>
-  )
+  );
   return loading || campground === null ? (
-    <div style={{height: '100vh', paddingTop: '40vh'}}>
+    <div style={{ height: '100vh', paddingTop: '40vh' }}>
       <Spinner />
     </div>
   ) : (
@@ -82,7 +88,7 @@ const Campground = ({
               Edit
             </button>
             <Link
-            // to={`/campgrounds/delete-campground/${campground._id}`}
+              // to={`/campgrounds/delete-campground/${campground._id}`}
               // onClick={e => deleteCampground(campground._id)}
               onClick={e => setShowModal(true)}
               className="btn btn-danger">
@@ -96,10 +102,16 @@ const Campground = ({
         </div>
       </section>
 
-      <Modal className={`modal ${showModal ? 'show' : ''}`} title="Delete Campground" content="Are you sure you want to delete this campground?" actions={actions} onDismiss={() => {
-history.push(`/campgrounds/${campground._id}`);
-setShowModal(false);
-      } }/>
+      <Modal
+        className={`modal ${showModal ? 'show' : ''}`}
+        title="Delete Campground"
+        content="Are you sure you want to delete this campground?"
+        actions={actions}
+        onDismiss={() => {
+          history.push(`/campgrounds/${campground._id}`);
+          setShowModal(false);
+        }}
+      />
 
       <CommentList
         comments={campground.comments}

@@ -1,37 +1,67 @@
 // Widescreens
 @include mediaXL {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   grid-template-areas: 'content image';
 }
 
 // Desktops & laptops
 @include mediaLg {
-    .campground-detail {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        grid-gap: 0rem;
-        grid-template-areas: 
-        'image'
-        'content';
+  .campground-detail {
+    grid-template-columns: 1fr;
+    // grid-template-rows: repeat(2, 1fr);
+    grid-gap: 3rem;
+    padding: 0rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    grid-template-areas:
+      'image'
+      'content';
 
-        img {
-            grid-area: image;
-        }
-
-        .campground-description {
-            grid-area: content;
-            text-align: center;
-        }
+    img {
+      grid-area: image;
+      height: 300px;
     }
+
+    .campground-description {
+      grid-area: content;
+      text-align: center;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        margin-bottom: 0.6rem;
+      }
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
 }
 
 // Tables & small laptops
 @include mediaMd {
-  
+  .campground-detail {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'content';
+
+    img {
+      grid-area: image;
+      height: 300px;
+    }
+
+    .campground-description {
+      grid-area: content;
+      text-align: center;
+    }
+  }
 }
 
 // Smart phones
 @include mediaSm {
-
 }

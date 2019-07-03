@@ -2659,7 +2659,11 @@ header {
     background-attachment: fixed;
     -webkit-background-attachment: fixed;
     -moz-background-attachment: fixed;
-    -o-background-attachment: fixed; }
+    -o-background-attachment: fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%; }
 
 .bg {
   position: absolute;
@@ -2976,11 +2980,31 @@ footer {
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .campground-detail {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 0rem;
+    grid-gap: 3rem;
+    padding: 0rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     grid-template-areas: 'image' 'content'; }
     .campground-detail img {
-      grid-area: image; }
+      grid-area: image;
+      height: 300px; }
+    .campground-detail .campground-description {
+      grid-area: content;
+      text-align: center; }
+      .campground-detail .campground-description h2 {
+        margin-bottom: 1rem; }
+      .campground-detail .campground-description h1 {
+        margin-bottom: 0.6rem; }
+      .campground-detail .campground-description p {
+        margin-bottom: 0.5rem; } }
+
+@media screen and (max-width: 768px) {
+  .campground-detail {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'image' 'content'; }
+    .campground-detail img {
+      grid-area: image;
+      height: 300px; }
     .campground-detail .campground-description {
       grid-area: content;
       text-align: center; } }

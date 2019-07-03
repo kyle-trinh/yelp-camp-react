@@ -97,6 +97,10 @@ header {
     -webkit-background-attachment: fixed;
     -moz-background-attachment: fixed;
     -o-background-attachment: fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
   }
 }
 
