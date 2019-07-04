@@ -5,22 +5,19 @@ const slides = [
   {
     id: 0,
     url:
-      'photo-1431794062232-2a99a5431c6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=20'
+      'photo-1431794062232-2a99a5431c6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1650&q=2'
   },
   {
     id: 1,
-    url:
-      'photo-1493962621260-74cc5a3baf89?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
+    url: 'photo-1493962621260-74cc5a3baf89?ixlib=rb-1.2.1&w=1650&q=2'
   },
   {
     id: 2,
-    url:
-      'photo-1508144753681-9986d4df99b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
+    url: 'photo-1508144753681-9986d4df99b3?ixlib=rb-1.2.1&w=1650&q=2'
   },
   {
     id: 3,
-    url:
-      'photo-1508182314998-3bd49473002f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=20'
+    url: 'photo-1508182314998-3bd49473002f?ixlib=rb-1.2.1&w=1650&q=2'
   }
 ];
 
