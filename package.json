@@ -9,7 +9,6 @@
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PREDUCTION=false npm install --prefix client && npm run build --prefix client"
-
   },
   "author": "Binh Trinh",
   "license": "MIT",
