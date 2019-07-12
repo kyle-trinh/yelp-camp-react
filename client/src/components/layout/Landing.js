@@ -6,6 +6,7 @@ import HeroBox from './HeroBox';
 const Landing = () => {
   return (
     <Fragment>
+      <Navbar className="menu" />
       <header>
         <HeroBox />
         <Slideshow />

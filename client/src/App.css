@@ -2616,7 +2616,8 @@ img {
 .container {
   max-width: 110rem;
   margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 2rem 2rem; }
 
 /* Padding */
 .p {
@@ -2668,18 +2669,31 @@ img {
 .my-3 {
   margin: 3rem 0; }
 
+.lead {
+  font-size: 2rem;
+  margin-bottom: 1rem; }
+
+.text-primary {
+  font-size: 4rem;
+  color: #4799cb; }
+
 .btn {
-  background-color: #5aa4d1;
-  color: #fff;
+  background-color: black;
+  color: white;
   padding: 1rem 2rem;
   border: none;
   border-radius: 4px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  outline: none;
   transition: all 0.5s ease-out; }
   .btn:hover {
     background-color: #2b709a;
     cursor: pointer; }
+  .btn-primary {
+    background-color: #5aa4d1;
+    color: #fff; }
 
 .btn-lg {
   font-size: 1.5rem; }
@@ -2761,3 +2775,23 @@ header {
 .menu-dark {
   background-color: #5aa4d1;
   padding: 2rem 8rem !important; }
+
+.form .form-group {
+  margin: 1.2rem 0; }
+
+.form .form-text {
+  display: block;
+  margin-top: 0.6rem;
+  color: #888; }
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border: 1px solid #ccc; }
