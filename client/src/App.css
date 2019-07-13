@@ -2675,11 +2675,13 @@ img {
 
 .sub-text {
   font-size: 1.5rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.8); }
 
 .text-primary {
-  font-size: 4rem;
-  color: #4799cb; }
+  font-size: 5rem;
+  color: #4799cb;
+  text-transform: uppercase; }
 
 .btn {
   background-color: black;
@@ -2699,6 +2701,10 @@ img {
   .btn-primary {
     background-color: #5aa4d1;
     color: #fff; }
+  .btn-danger {
+    background-color: red; }
+    .btn-danger:hover {
+      background-color: #990000; }
 
 .btn-lg {
   font-size: 1.5rem; }
@@ -2821,18 +2827,21 @@ select {
   .section-campgrounds .campgrounds-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    grid-gap: 3rem;
     margin-top: 2rem;
     position: relative;
     min-height: 30vh; }
     .section-campgrounds .campgrounds-container .campground-badge {
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 4px;
-      overflow: hidden;
-      padding-bottom: 3rem; }
-      .section-campgrounds .campgrounds-container .campground-badge .badge-title {
-        font-size: 2.5rem;
-        text-align: center; }
+      overflow: hidden; }
+      .section-campgrounds .campgrounds-container .campground-badge .badge-info {
+        padding: 1rem;
+        padding-bottom: 2rem; }
+        .section-campgrounds .campgrounds-container .campground-badge .badge-info .badge-title {
+          font-size: 2rem;
+          text-align: center;
+          margin-bottom: 1.5rem; }
       .section-campgrounds .campgrounds-container .campground-badge .badge-img {
         height: 20rem;
         object-fit: cover;
@@ -2849,3 +2858,46 @@ select {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+.campground-header {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden; }
+  .campground-header .campground-header-title {
+    position: absolute;
+    top: 50vh;
+    left: 10vw;
+    color: #fff;
+    font-size: 9rem;
+    line-height: 1.2; }
+
+.campground-detail-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  grid-template-areas: 'content image';
+  overflow: hidden;
+  height: 100vh;
+  max-width: 110rem;
+  margin: 0 auto;
+  align-items: center; }
+  .campground-detail-section .campground-detail-image {
+    grid-area: image;
+    height: 80%;
+    object-fit: cover; }
+  .campground-detail-section .campground-detail-content {
+    grid-area: content;
+    justify-self: center; }
+    .campground-detail-section .campground-detail-content h2 {
+      background-color: rgba(0, 0, 0, 0.8);
+      display: inline-block;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      font-size: 2rem; }

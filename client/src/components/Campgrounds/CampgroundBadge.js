@@ -2,6 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CampgroundBadge = ({ campground }) => {
+  const titleShorten = title => {
+    const titleArray = title.split(' ');
+    let result = '';
+    if (titleArray.length > 3) {
+      result += '...';
+    }
+    result = titleArray.splice(0, 3).join(' ') + result;
+
+    return result;
+  };
   return (
     <div className="campground-badge">
       <Link to="/">
@@ -11,11 +21,12 @@ const CampgroundBadge = ({ campground }) => {
           alt={campground.title}
         />
       </Link>
-
-      <h3 className="my-2 badge-title">{campground.title}</h3>
-      <Link to="/" className="btn btn-primary">
-        More info
-      </Link>
+      <div className="badge-info">
+        <h3 className="badge-title">{titleShorten(campground.title)}</h3>
+        <Link to={`/campground/${campground._id}`} className="btn btn-primary">
+          More info
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,13 +1,14 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCampgrounds } from '../../actions/campground';
+import { getCampgrounds, clearCampground } from '../../actions/campground';
 import Spinner from '../layout/Spinner';
 import CampgroundBadge from './CampgroundBadge';
 
-const CampgroundList = ({ getCampgrounds, campgrounds }) => {
+const CampgroundList = ({ getCampgrounds, campgrounds, clearCampground }) => {
   useEffect(() => {
     getCampgrounds();
+    clearCampground();
   }, [getCampgrounds]);
   return (
     <div className="section-campgrounds p-3">
@@ -41,5 +42,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCampgrounds }
+  { getCampgrounds, clearCampground }
 )(CampgroundList);

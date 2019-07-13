@@ -15,6 +15,7 @@ import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import CreateCampground from './components/Campgrounds/CreateCampground';
+import Campground from './components/Campground/Campground';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -37,6 +38,7 @@ const App = () => {
               path="/campground/new"
               component={CreateCampground}
             />
+            <Route exact path="/campground/:id" component={Campground} />
           </Switch>
         </Fragment>
       </Router>

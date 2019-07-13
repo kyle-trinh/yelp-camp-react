@@ -2,7 +2,9 @@ import {
   GET_CAMPGROUNDS,
   GET_CAMPGROUND,
   CAMPGROUND_ERROR,
-  CREATE_CAMPGROUND
+  CREATE_CAMPGROUND,
+  CLEAR_CAMPGROUND,
+  UPDATE_LIKES
 } from '../actions/types';
 
 const initialState = {
@@ -15,7 +17,8 @@ const initialState = {
     campground: null,
     loading: true,
     error: {}
-  }
+  },
+  error: {}
 };
 
 export default function(state = initialState, action) {
@@ -31,7 +34,42 @@ export default function(state = initialState, action) {
           loading: false
         }
       };
-
+    case GET_CAMPGROUND:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          campground: payload,
+          loading: false
+        }
+      };
+    case CLEAR_CAMPGROUND:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          campground: null,
+          loading: true
+        }
+      };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          campground: {
+            ...state.campground.campground,
+            likes: payload
+          },
+          loading: false
+        },
+        loading: false
+      };
+    case CAMPGROUND_ERROR:
+      return {
+        ...state,
+        error: payload
+      };
     default:
       return state;
   }
