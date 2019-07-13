@@ -101,6 +101,11 @@ img {
   margin-bottom: 1rem;
 }
 
+.sub-text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .text-primary {
   font-size: 4rem;
   color: darken($secondary-color, 25);
@@ -115,6 +120,7 @@ img {
   font-family: inherit;
   font-size: 1.5rem;
   margin-right: 0.5rem;
+  display: inline-block;
   outline: none;
   @include easeOut;
 
@@ -137,8 +143,17 @@ img {
   padding: 0.8rem;
   margin: 1rem 0;
   opacity: 0.9;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.6);
   color: $primary-color;
+  font-size: 1.5rem;
+
+  &-danger {
+    background-color: red;
+  }
+
+  &-success {
+    background-color: green;
+  }
 }
 
 .bg {
@@ -174,9 +189,6 @@ header {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
 
   .hero-text-box {
     position: absolute;
@@ -201,7 +213,6 @@ header {
   padding: 3rem 8rem 0rem 8rem;
   font-size: 2rem;
   position: relative;
-
   z-index: 1;
 
   .menu-nav {
@@ -260,6 +271,69 @@ select {
   padding: 0.8rem;
   font-size: 1.5rem;
   border: 1px solid #ccc;
+}
+
+.section-campgrounds {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+
+  .section-header {
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 4rem;
+
+    &:after {
+      content: '';
+      width: 15rem;
+      height: 2px;
+      display: block;
+      background-color: black;
+      margin: 1rem auto;
+    }
+  }
+
+  .campgrounds-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    min-height: 30vh;
+
+    .campground-badge {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      overflow: hidden;
+      padding-bottom: 3rem;
+
+      .badge-title {
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .badge-img {
+        height: 20rem;
+        object-fit: cover;
+        transform: scale(1.15);
+        transform-origin: bottom;
+        @include easeOut;
+
+        &:hover {
+          opacity: 0.8;
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}
+
+.spinner {
+  width: 50px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @import 'mobile';

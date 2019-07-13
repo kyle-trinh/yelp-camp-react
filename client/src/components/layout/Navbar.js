@@ -7,15 +7,15 @@ const Navbar = ({ className, logout, auth: { isAuthenticated, loading } }) => {
   const authLinks = (
     <ul className="menu-nav">
       <li className="nav-item">
-        <Link href="#!" className="nav-link">
+        <Link to="/" className="nav-link">
           Home
         </Link>
       </li>
       <li className="nav-item">
-        <a href="#!" className="nav-link" onClick={logout}>
+        <Link to="/" className="nav-link" onClick={logout}>
           Logout{' '}
           <i style={{ fontSize: '1.8rem' }} className="fas fa-sign-out-alt" />
-        </a>
+        </Link>
       </li>
     </ul>
   );
