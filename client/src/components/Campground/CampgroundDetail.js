@@ -1,9 +1,16 @@
 import React, { Fragment, useEffect } from 'react';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { addLike } from '../../actions/campground';
+import { Link } from 'react-router-dom';
+import { addLike, removeLike, clearCampground } from '../../actions/campground';
 
-const CampgroundDetail = ({ campground, auth, addLike }) => {
+const CampgroundDetail = ({
+  clearCampground,
+  campground,
+  auth,
+  addLike,
+  removeLike
+}) => {
   const likedYet = () => {
     let result = false;
     campground.likes.map(like => {
@@ -13,6 +20,20 @@ const CampgroundDetail = ({ campground, auth, addLike }) => {
     });
     return result;
   };
+
+  const likeBtn = (
+    <button onClick={() => addLike(campground._id)} className="btn btn-primary">
+      Like
+    </button>
+  );
+
+  const unlikeBtn = (
+    <button
+      onClick={() => removeLike(campground._id)}
+      className="btn btn-danger">
+      Unlike
+    </button>
+  );
 
   return (
     <Fragment>
@@ -31,17 +52,24 @@ const CampgroundDetail = ({ campground, auth, addLike }) => {
           Submited by {campground.name ? campground.name : 'Unknown'}, on{' '}
           <Moment format="YYYY/MM/DD">{campground.date}</Moment>
         </p>
-        <div className="campground-like" />
+
         {auth.isAuthenticated ? (
           <Fragment>
-            <button
-              onClick={() => addLike(campground._id)}
-              className={likedYet() ? 'btn btn-danger' : 'btn btn-primary'}>
-              {likedYet() ? 'Unlike' : 'Like'}
-            </button>
-            <span className="sub-text">
-              {campground.likes.length} people likes this
-            </span>
+            <div className="campground-like">
+              {likedYet() ? unlikeBtn : likeBtn}{' '}
+              <span className="sub-text">
+                {campground.likes.length} people likes this
+              </span>
+            </div>
+            <div className="campground-action my-2">
+              <Link
+                onClick={() => clearCampground()}
+                to={`/campground/edit/${campground._id}`}
+                className="btn btn-primary">
+                Edit
+              </Link>
+              <button className="btn btn-danger">Delete</button>
+            </div>
           </Fragment>
         ) : null}
       </div>
@@ -55,5 +83,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addLike }
+  { addLike, removeLike, clearCampground }
 )(CampgroundDetail);

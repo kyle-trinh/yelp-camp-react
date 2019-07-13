@@ -121,7 +121,7 @@ img {
   border-radius: 4px;
   font-family: inherit;
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   display: inline-block;
   outline: none;
   @include easeOut;
@@ -137,10 +137,10 @@ img {
   }
 
   &-danger {
-    background-color: red;
+    background-color: $danger-color;
 
     &:hover {
-      background-color: darken(red, 20);
+      background-color: darken($danger-color, 20);
     }
   }
 }
@@ -158,11 +158,11 @@ img {
   font-size: 1.5rem;
 
   &-danger {
-    background-color: red;
+    background-color: $danger-color;
   }
 
   &-success {
-    background-color: green;
+    background-color: $success-color;
   }
 }
 

@@ -4,7 +4,8 @@ import {
   CAMPGROUND_ERROR,
   CREATE_CAMPGROUND,
   CLEAR_CAMPGROUND,
-  UPDATE_LIKES
+  UPDATE_LIKES,
+  UPDATE_CAMPGROUND
 } from './types';
 import axios from 'axios';
 import history from '../history';
@@ -91,13 +92,39 @@ export const removeLike = id => async dispatch => {
 
     dispatch({
       type: UPDATE_LIKES,
-      payload: { id, likes: res.data }
+      payload: res.data
     });
   } catch (err) {
     dispatch({
       type: CAMPGROUND_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  }
+};
+
+export const updateCampground = (id, formData) => async dispatch => {
+  const { title, description, coverImage, image } = formData;
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const body = JSON.stringify({ title, description, coverImage, image });
+
+    const res = await axios.put(`/api/campgrounds/${id}`, body, config);
+
+    dispatch({
+      type: UPDATE_CAMPGROUND,
+      payload: res.data
+    });
+
+    dispatch(setAlert('Campground Updated', 'success'));
+
+    setTimeout(() => history.push(`/campground/${id}`), 3000);
+  } catch (err) {
+    console.log(err);
   }
 };
 

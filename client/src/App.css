@@ -2691,7 +2691,7 @@ img {
   border-radius: 4px;
   font-family: inherit;
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   display: inline-block;
   outline: none;
   transition: all 0.5s ease-out; }
@@ -2702,9 +2702,9 @@ img {
     background-color: #5aa4d1;
     color: #fff; }
   .btn-danger {
-    background-color: red; }
+    background-color: #f44336; }
     .btn-danger:hover {
-      background-color: #990000; }
+      background-color: #ba160a; }
 
 .btn-lg {
   font-size: 1.5rem; }
@@ -2717,9 +2717,9 @@ img {
   color: #fff;
   font-size: 1.5rem; }
   .alert-danger {
-    background-color: red; }
+    background-color: #f44336; }
   .alert-success {
-    background-color: green; }
+    background-color: #43a047; }
 
 .bg {
   position: absolute;

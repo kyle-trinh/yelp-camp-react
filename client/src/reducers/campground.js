@@ -4,7 +4,8 @@ import {
   CAMPGROUND_ERROR,
   CREATE_CAMPGROUND,
   CLEAR_CAMPGROUND,
-  UPDATE_LIKES
+  UPDATE_LIKES,
+  UPDATE_CAMPGROUND
 } from '../actions/types';
 
 const initialState = {
@@ -26,6 +27,7 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_CAMPGROUNDS:
+    case UPDATE_CAMPGROUND:
       return {
         ...state,
         campgrounds: {
@@ -43,6 +45,7 @@ export default function(state = initialState, action) {
           loading: false
         }
       };
+
     case CLEAR_CAMPGROUND:
       return {
         ...state,

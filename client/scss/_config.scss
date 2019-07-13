@@ -1,5 +1,7 @@
 $primary-color: #fff;
 $secondary-color: #aad0e7;
+$danger-color: #f44336;
+$success-color: #43a047;
 
 @mixin easeOut {
   transition: all 0.5s ease-out;
