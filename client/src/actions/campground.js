@@ -5,7 +5,8 @@ import {
   CREATE_CAMPGROUND,
   CLEAR_CAMPGROUND,
   UPDATE_LIKES,
-  UPDATE_CAMPGROUND
+  UPDATE_CAMPGROUND,
+  DELETE_CAMPGROUND
 } from './types';
 import axios from 'axios';
 import history from '../history';
@@ -123,6 +124,20 @@ export const updateCampground = (id, formData) => async dispatch => {
     dispatch(setAlert('Campground Updated', 'success'));
 
     setTimeout(() => history.push(`/campground/${id}`), 3000);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteCampground = id => async dispatch => {
+  try {
+    await axios.delete(`/api/campgrounds/${id}`);
+
+    dispatch({
+      type: DELETE_CAMPGROUND,
+      payload: id
+    });
+    history.push('/');
   } catch (err) {
     console.log(err);
   }

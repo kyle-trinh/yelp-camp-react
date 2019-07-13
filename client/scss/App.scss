@@ -403,4 +403,67 @@ select {
   }
 }
 
+.show {
+  display: block !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  overflow: auto;
+  padding-top: 20rem;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .modal-content {
+    background-color: $primary-color;
+    margin: 0 auto;
+    max-width: 50rem;
+    border-radius: 3px;
+    padding: 1.5rem;
+
+    .modal-title {
+      font-size: 2rem;
+      text-align: left;
+
+      &:after {
+        content: '';
+        display: block;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 1px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 1rem;
+      }
+    }
+
+    .modal-detail {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      text-align: left;
+
+      &:after {
+        content: '';
+        display: block;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 1px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .action {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}
+
 @import 'mobile';

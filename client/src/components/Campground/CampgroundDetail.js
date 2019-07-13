@@ -1,15 +1,22 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addLike, removeLike, clearCampground } from '../../actions/campground';
+import {
+  addLike,
+  removeLike,
+  clearCampground,
+  deleteCampground
+} from '../../actions/campground';
+import Modal from '../layout/Modal';
 
 const CampgroundDetail = ({
   clearCampground,
   campground,
   auth,
   addLike,
-  removeLike
+  removeLike,
+  deleteCampground
 }) => {
   const likedYet = () => {
     let result = false;
@@ -33,6 +40,21 @@ const CampgroundDetail = ({
       className="btn btn-danger">
       Unlike
     </button>
+  );
+
+  const [showModal, setShowModal] = useState(false);
+
+  const deleteActions = (
+    <Fragment>
+      <button onClick={() => setShowModal(false)} className="btn btn-primary">
+        Cancel
+      </button>
+      <button
+        onClick={() => deleteCampground(campground._id)}
+        className="btn btn-danger">
+        Delete
+      </button>
+    </Fragment>
   );
 
   return (
@@ -61,18 +83,34 @@ const CampgroundDetail = ({
                 {campground.likes.length} people likes this
               </span>
             </div>
-            <div className="campground-action my-2">
-              <Link
-                onClick={() => clearCampground()}
-                to={`/campground/edit/${campground._id}`}
-                className="btn btn-primary">
-                Edit
-              </Link>
-              <button className="btn btn-danger">Delete</button>
-            </div>
+            {auth.user._id === campground.user ? (
+              <div className="campground-action my-2">
+                <Link
+                  onClick={() => clearCampground()}
+                  to={`/campground/edit/${campground._id}`}
+                  className="btn btn-primary">
+                  Edit
+                </Link>
+                <a
+                  href="#!"
+                  onClick={e => setShowModal(true)}
+                  className="btn btn-danger">
+                  Delete
+                </a>
+              </div>
+            ) : null}
           </Fragment>
         ) : null}
       </div>
+      <Modal
+        className={`modal ${showModal ? 'show' : ''}`}
+        title="Delete campground"
+        content="Are you sure you want to delete this campground?"
+        actions={deleteActions}
+        onDismiss={() => {
+          setShowModal(false);
+        }}
+      />
     </Fragment>
   );
 };
@@ -83,5 +121,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addLike, removeLike, clearCampground }
+  { addLike, removeLike, clearCampground, deleteCampground }
 )(CampgroundDetail);

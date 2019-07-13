@@ -27,7 +27,6 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_CAMPGROUNDS:
-    case UPDATE_CAMPGROUND:
       return {
         ...state,
         campgrounds: {
@@ -37,6 +36,7 @@ export default function(state = initialState, action) {
         }
       };
     case GET_CAMPGROUND:
+    case UPDATE_CAMPGROUND:
       return {
         ...state,
         campground: {
