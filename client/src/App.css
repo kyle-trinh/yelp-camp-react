@@ -2926,12 +2926,13 @@ textarea {
   grid-gap: 5rem;
   grid-template-areas: 'content image';
   overflow: hidden;
+  padding: 8rem 0rem;
   max-width: 110rem;
   margin: 0 auto;
   align-items: center; }
   .campground-detail-section .campground-detail-image {
     grid-area: image;
-    height: 80%;
+    height: 80rem;
     object-fit: cover; }
   .campground-detail-section .campground-detail-content {
     grid-area: content;

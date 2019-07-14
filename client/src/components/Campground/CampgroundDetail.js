@@ -61,7 +61,7 @@ const CampgroundDetail = ({
   return (
     <Fragment>
       <img
-        className="campground-detail-image"
+        className="campground-detail-image wow slideInLeft"
         src={campground.image}
         alt={campground.title}
       />
