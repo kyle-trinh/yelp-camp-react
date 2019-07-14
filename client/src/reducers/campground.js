@@ -2,10 +2,11 @@ import {
   GET_CAMPGROUNDS,
   GET_CAMPGROUND,
   CAMPGROUND_ERROR,
-  CREATE_CAMPGROUND,
   CLEAR_CAMPGROUND,
   UPDATE_LIKES,
-  UPDATE_CAMPGROUND
+  UPDATE_CAMPGROUND,
+  ADD_COMMENT,
+  REMOVE_COMMENT
 } from '../actions/types';
 
 const initialState = {
@@ -67,6 +68,18 @@ export default function(state = initialState, action) {
           loading: false
         },
         loading: false
+      };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          campground: {
+            ...state.campground.campground,
+            comments: payload
+          },
+          loading: false
+        }
       };
     case CAMPGROUND_ERROR:
       return {

@@ -2683,6 +2683,9 @@ img {
   color: #4799cb;
   text-transform: uppercase; }
 
+.text-white {
+  color: #fff !important; }
+
 .btn {
   background-color: black;
   color: white;
@@ -2706,8 +2709,12 @@ img {
     .btn-danger:hover {
       background-color: #ba160a; }
 
+.btn-sm {
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem; }
+
 .btn-lg {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
 
 .alert {
   padding: 0.8rem;
@@ -2789,13 +2796,14 @@ header {
   background-color: #5aa4d1;
   padding: 2rem 8rem !important; }
 
-.form .form-group {
-  margin: 1.2rem 0; }
-
-.form .form-text {
-  display: block;
-  margin-top: 0.6rem;
-  color: #888; }
+.form {
+  text-align: left; }
+  .form .form-group {
+    margin: 1.2rem 0; }
+  .form .form-text {
+    display: block;
+    margin-top: 0.6rem;
+    color: #888; }
 
 input[type='text'],
 input[type='email'],
@@ -2807,11 +2815,43 @@ select {
   width: 100%;
   padding: 0.8rem;
   font-size: 1.5rem;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+  box-sizing: border-box; }
+
+textarea {
+  height: 8rem; }
+
+.dark-bg {
+  background-color: rgba(0, 0, 0, 0.7); }
+  .dark-bg .section-header:after {
+    background-color: #fff !important; }
+
+.comment-group {
+  margin: 0 auto; }
+  .comment-group .comment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 1px solid #fff;
+    padding: 2rem; }
+    .comment-group .comment img {
+      width: 10%;
+      margin-right: 2rem;
+      margin-top: 0.5rem; }
+    .comment-group .comment .comment-detail {
+      width: 70%;
+      text-align: left;
+      overflow: hidden;
+      word-wrap: break-word; }
+      .comment-group .comment .comment-detail .comment-author {
+        font-size: 2rem;
+        color: #82badc; }
+    .comment-group .comment .time-ago {
+      width: 20%;
+      text-align: right; }
 
 .section-campgrounds {
   text-align: center;
-  min-height: 100vh;
   position: relative; }
   .section-campgrounds .section-header {
     font-size: 4rem;
@@ -2901,6 +2941,27 @@ select {
       padding: 0.6rem 1.4rem;
       border-radius: 4px;
       font-size: 2rem; }
+
+.noti {
+  position: fixed;
+  top: 3rem;
+  left: 10%;
+  z-index: 10;
+  font-weight: 700;
+  width: 80%;
+  padding: 1rem;
+  padding-left: 3rem;
+  display: block;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 10px 5px 25px rgba(0, 0, 0, 0.6); }
+  .noti-danger {
+    background-color: #f44336;
+    color: #fff; }
+  .noti-success {
+    background-color: #43a047;
+    color: #fff; }
 
 .show {
   display: block !important; }

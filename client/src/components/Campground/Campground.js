@@ -6,6 +6,7 @@ import Spinner from '../layout/Spinner';
 import Navbar from '../layout/Navbar';
 import CampgroundHeader from './CampgroundHeader';
 import CampgroundDetail from './CampgroundDetail';
+import CommentList from './comment/CommentList';
 
 const Campground = ({ match, getCampground, campground }) => {
   useEffect(() => {
@@ -22,6 +23,13 @@ const Campground = ({ match, getCampground, campground }) => {
 
       <div className="campground-detail-section">
         <CampgroundDetail campground={campground.campground} />
+      </div>
+
+      <div className="section-campgrounds dark-bg p-3">
+        <CommentList
+          campgroundId={campground.campground._id}
+          comments={campground.campground.comments}
+        />
       </div>
     </Fragment>
   );

@@ -11,12 +11,12 @@ import PrivateRoute from './routing/PrivateRoute';
 import Landing from './components/layout/Landing';
 
 import history from './history';
-import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import CreateCampground from './components/Campgrounds/CreateCampground';
 import Campground from './components/Campground/Campground';
 import EditCampground from './components/Campgrounds/EditCampground';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -29,24 +29,26 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <Fragment>
-          <Route exact path="/" component={Landing} />
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <PrivateRoute
-              exact
-              path="/campground/new"
-              component={CreateCampground}
-            />
-            <Route exact path="/campground/:id" component={Campground} />
-            <PrivateRoute
-              exact
-              path="/campground/edit/:id"
-              component={EditCampground}
-            />
-          </Switch>
-        </Fragment>
+        <ScrollToTop>
+          <Fragment>
+            <Route exact path="/" component={Landing} />
+            <Switch>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <PrivateRoute
+                exact
+                path="/campground/new"
+                component={CreateCampground}
+              />
+              <Route exact path="/campground/:id" component={Campground} />
+              <PrivateRoute
+                exact
+                path="/campground/edit/:id"
+                component={EditCampground}
+              />
+            </Switch>
+          </Fragment>
+        </ScrollToTop>
       </Router>
     </Provider>
   );

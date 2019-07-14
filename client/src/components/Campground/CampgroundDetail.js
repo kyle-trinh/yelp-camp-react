@@ -24,6 +24,7 @@ const CampgroundDetail = ({
       if (like.user === auth.user._id) {
         result = true;
       }
+      return like;
     });
     return result;
   };

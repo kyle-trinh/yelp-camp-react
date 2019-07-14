@@ -9,7 +9,7 @@ const CampgroundList = ({ getCampgrounds, campgrounds, clearCampground }) => {
   useEffect(() => {
     getCampgrounds();
     clearCampground();
-  }, [getCampgrounds]);
+  }, [getCampgrounds, clearCampground]);
   return (
     <div className="section-campgrounds p-3">
       <div className="container">
