@@ -171,6 +171,19 @@ export const addComment = (campgroundId, formData) => async dispatch => {
   }
 };
 
+export const deleteComment = (campgroundId, commentId) => async dispatch => {
+  try {
+    await axios.delete(`/api/campgrounds/comment/${campgroundId}/${commentId}`);
+    dispatch({
+      type: REMOVE_COMMENT,
+      payload: commentId
+    });
+    dispatch(setAlert('Comment removed', 'success'));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const clearCampground = () => dispatch => {
   dispatch({
     type: CLEAR_CAMPGROUND

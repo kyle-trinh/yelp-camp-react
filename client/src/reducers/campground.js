@@ -81,6 +81,19 @@ export default function(state = initialState, action) {
           loading: false
         }
       };
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        campground: {
+          ...state.campground,
+          campground: {
+            ...state.campground.campground,
+            comments: state.campground.campground.comments.filter(
+              comment => comment._id !== payload
+            )
+          }
+        }
+      };
     case CAMPGROUND_ERROR:
       return {
         ...state,

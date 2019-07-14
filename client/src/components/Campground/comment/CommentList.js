@@ -40,7 +40,11 @@ const CommentList = ({
 
       <div className="comment-group">
         {comments.map(comment => (
-          <Comment comment={comment} key={comment._id} />
+          <Comment
+            campgroundId={campgroundId}
+            comment={comment}
+            key={comment._id}
+          />
         ))}
       </div>
     </div>
