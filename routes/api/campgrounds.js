@@ -19,6 +19,12 @@ router.post(
         .isEmpty(),
       check('title', 'Title is required')
         .not()
+        .isEmpty(),
+      check('image', 'Image is required')
+        .not()
+        .isEmpty(),
+      check('coverImage', 'Cover Image is required')
+        .not()
         .isEmpty()
     ]
   ],

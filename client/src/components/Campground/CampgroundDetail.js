@@ -78,14 +78,14 @@ const CampgroundDetail = ({
 
         {auth.isAuthenticated ? (
           <Fragment>
-            <div className="campground-like">
+            <div className="campground-like my-2">
               {likedYet() ? unlikeBtn : likeBtn}{' '}
               <span className="sub-text">
                 {campground.likes.length} people likes this
               </span>
             </div>
             {auth.user._id === campground.user ? (
-              <div className="campground-action my-2">
+              <div className="campground-action ">
                 <Link
                   onClick={() => clearCampground()}
                   to={`/campground/edit/${campground._id}`}

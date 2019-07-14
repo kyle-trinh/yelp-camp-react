@@ -20,7 +20,7 @@ const Login = ({ login, isAuthenticated }) => {
     return <Redirect to="/" />;
   }
   return (
-    <div>
+    <div className="form-wrapper">
       <Navbar className="menu menu-dark" />
       <div>
         <section className="container ">
@@ -60,7 +60,10 @@ const Login = ({ login, isAuthenticated }) => {
           </form>
 
           <p className="lead">
-            Don't have an account? <Link to="/register">Sign up</Link>
+            Don't have an account?{' '}
+            <Link to="/register">
+              <span className="text-blue">Sign up</span>
+            </Link>
           </p>
         </section>
       </div>

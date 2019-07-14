@@ -17,6 +17,7 @@ import CreateCampground from './components/Campgrounds/CreateCampground';
 import Campground from './components/Campground/Campground';
 import EditCampground from './components/Campgrounds/EditCampground';
 import ScrollToTop from './components/layout/ScrollToTop';
+import Footer from './components/layout/Footer';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -47,6 +48,7 @@ const App = () => {
                 component={EditCampground}
               />
             </Switch>
+            <Footer />
           </Fragment>
         </ScrollToTop>
       </Router>

@@ -47,7 +47,7 @@ const EditCampground = ({
   return campground.loading ? (
     <Spinner />
   ) : (
-    <div>
+    <div className="form-wrapper">
       {console.log(campground)}
       <Navbar className="menu menu-dark" />
       <section className="container">

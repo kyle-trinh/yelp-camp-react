@@ -26,7 +26,7 @@ const NewCampground = ({ createCampground }) => {
   };
 
   return (
-    <div>
+    <div className="form-wrapper">
       <Navbar className="menu menu-dark" />
       <section className="container">
         <Alert />
@@ -38,7 +38,6 @@ const NewCampground = ({ createCampground }) => {
               type="text"
               placeholder="Title"
               name="title"
-              required
               value={title}
               onChange={e => onChange(e)}
             />
@@ -49,7 +48,6 @@ const NewCampground = ({ createCampground }) => {
               type="text"
               placeholder="Description"
               name="description"
-              required
               value={description}
               onChange={e => onChange(e)}
             />
@@ -60,7 +58,6 @@ const NewCampground = ({ createCampground }) => {
               type="text"
               placeholder="Image"
               name="image"
-              required
               value={image}
               onChange={e => onChange(e)}
             />
@@ -71,7 +68,6 @@ const NewCampground = ({ createCampground }) => {
               type="text"
               placeholder="Cover Image"
               name="coverImage"
-              required
               value={coverImage}
               onChange={e => onChange(e)}
             />

@@ -4,12 +4,79 @@
 
 // Desktops & laptops
 @include mediaLg {
+  .section-campgrounds {
+    .campgrounds-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .campground-detail-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40rem minmax(10rem, auto);
+    grid-template-areas:
+      'image'
+      'content';
+    padding: 5rem 6rem;
+    grid-gap: 2rem;
+
+    .campground-detail-image {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .campground-detail-content {
+      text-align: center;
+    }
+  }
 }
 
 // Tables & small laptops
 @include mediaMd {
+  .section-campgrounds {
+    .campgrounds-container {
+      grid-template-columns: repeat(1, 1fr);
+
+      .campground-badge {
+        .badge-img {
+          height: 30rem;
+        }
+      }
+    }
+  }
+
+  .campground-detail-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40rem minmax(20rem, auto);
+    grid-template-areas:
+      'image'
+      'content';
+    padding: 5rem 6rem;
+    grid-gap: 2rem;
+
+    .campground-detail-image {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .campground-detail-content {
+      text-align: center;
+    }
+  }
 }
 
 // Smart phones
 @include mediaSm {
+  .section-campgrounds {
+    .campgrounds-container {
+      grid-template-columns: 1fr;
+
+      .campground-badge {
+        .badge-img {
+          height: 25rem;
+        }
+      }
+    }
+  }
 }

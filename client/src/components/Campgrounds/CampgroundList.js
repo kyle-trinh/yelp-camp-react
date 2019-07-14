@@ -11,7 +11,7 @@ const CampgroundList = ({ getCampgrounds, campgrounds, clearCampground }) => {
     clearCampground();
   }, [getCampgrounds, clearCampground]);
   return (
-    <div className="section-campgrounds p-3">
+    <div className="section-campgrounds p-3" id="campground-section">
       <div className="container">
         <h1 className="text-primary section-header">Campgrounds</h1>
         <p className="sub-text">

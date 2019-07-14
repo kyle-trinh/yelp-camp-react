@@ -4,7 +4,9 @@ import spinner from './Double Ring-1s-200px.gif';
 const Spinner = () => {
   return (
     <Fragment>
-      <img className="spinner" src={spinner} alt="Loading..." />
+      <main id="main">
+        <img className="spinner" src={spinner} alt="Loading..." />
+      </main>
     </Fragment>
   );
 };

@@ -2686,6 +2686,9 @@ img {
 .text-white {
   color: #fff !important; }
 
+.text-blue {
+  color: #378dc1; }
+
 .btn {
   background-color: black;
   color: white;
@@ -2883,7 +2886,7 @@ textarea {
           text-align: center;
           margin-bottom: 1.5rem; }
       .section-campgrounds .campgrounds-container .campground-badge .badge-img {
-        height: 20rem;
+        height: 25rem;
         object-fit: cover;
         transform: scale(1.15);
         transform-origin: bottom;
@@ -2923,7 +2926,6 @@ textarea {
   grid-gap: 5rem;
   grid-template-areas: 'content image';
   overflow: hidden;
-  height: 100vh;
   max-width: 110rem;
   margin: 0 auto;
   align-items: center; }
@@ -3011,3 +3013,61 @@ textarea {
       display: flex;
       justify-content: flex-end;
       align-items: center; }
+
+main {
+  min-height: 100vh; }
+
+.form-wrapper {
+  min-height: calc(100vh - 70px); }
+
+footer {
+  position: relative;
+  z-index: -1;
+  height: 50px;
+  background-color: #5aa4d1;
+  text-align: center;
+  padding-top: 22px;
+  color: #fff; }
+  footer .sub-text {
+    font-weight: 700;
+    color: #fff; }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .section-campgrounds .campgrounds-container {
+    grid-template-columns: repeat(2, 1fr); }
+  .campground-detail-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40rem minmax(10rem, auto);
+    grid-template-areas: 'image' 'content';
+    padding: 5rem 6rem;
+    grid-gap: 2rem; }
+    .campground-detail-section .campground-detail-image {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto; }
+    .campground-detail-section .campground-detail-content {
+      text-align: center; } }
+
+@media screen and (max-width: 768px) {
+  .section-campgrounds .campgrounds-container {
+    grid-template-columns: repeat(1, 1fr); }
+    .section-campgrounds .campgrounds-container .campground-badge .badge-img {
+      height: 30rem; }
+  .campground-detail-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40rem minmax(20rem, auto);
+    grid-template-areas: 'image' 'content';
+    padding: 5rem 6rem;
+    grid-gap: 2rem; }
+    .campground-detail-section .campground-detail-image {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto; }
+    .campground-detail-section .campground-detail-content {
+      text-align: center; } }
+
+@media screen and (max-width: 500px) {
+  .section-campgrounds .campgrounds-container {
+    grid-template-columns: 1fr; }
+    .section-campgrounds .campgrounds-container .campground-badge .badge-img {
+      height: 25rem; } }

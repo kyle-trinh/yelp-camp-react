@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <div>
+    <div className="form-wrapper">
       <Navbar className="menu menu-dark" />
       <section className="container">
         <Alert />
@@ -82,12 +82,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             />
           </div>
 
-          <input type="submit" className="btn btn-primary" value="register" />
+          <input type="submit" className="btn btn-primary" value="Register" />
         </form>
-
-        <p className="lead">
-          Don't have an account? <Link to="/register">Sign up</Link>
-        </p>
       </section>
     </div>
   );

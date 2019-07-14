@@ -64,6 +64,11 @@ export const createCampground = formData => async dispatch => {
 
     setTimeout(() => history.push('/'), 3000);
   } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
     dispatch({
       type: CAMPGROUND_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
