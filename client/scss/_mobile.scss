@@ -64,6 +64,36 @@
       text-align: center;
     }
   }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .menu {
+    align-items: flex-start;
+    justify-content: flex-start;
+    .menu-nav {
+      flex-direction: column;
+      margin-left: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      height: 0px;
+      @include easeOut;
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+      }
+      .nav-item {
+        margin-bottom: 1rem;
+
+        .nav-link {
+          padding: 0.6rem 1.2rem;
+        }
+      }
+    }
+  }
 }
 
 // Smart phones

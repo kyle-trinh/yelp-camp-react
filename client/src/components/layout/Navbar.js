@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
 const Navbar = ({ className, logout, auth: { isAuthenticated, loading } }) => {
+  const [closeBtn, setCloseBtn] = useState(false);
+
   const authLinks = (
     <ul className="menu-nav">
       <li className="nav-item">
@@ -21,7 +23,7 @@ const Navbar = ({ className, logout, auth: { isAuthenticated, loading } }) => {
   );
 
   const guestLinks = (
-    <ul className="menu-nav">
+    <ul className={closeBtn ? 'menu-nav show' : 'menu-nav'}>
       <li className="nav-item">
         <Link to="/" className="nav-link">
           Home
@@ -48,6 +50,15 @@ const Navbar = ({ className, logout, auth: { isAuthenticated, loading } }) => {
         {!loading ? (
           <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
         ) : null}
+        <div
+          className={closeBtn ? 'menu-btn close' : 'menu-btn'}
+          onClick={() => {
+            setCloseBtn(!closeBtn);
+          }}>
+          <div className="btn-line" />
+          <div className="btn-line" />
+          <div className="btn-line" />
+        </div>
       </nav>
     </Fragment>
   );

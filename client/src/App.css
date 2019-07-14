@@ -1,3 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 50px;
+  top: 35px;
+  display: none;
+  cursor: pointer;
+  transition: all 0.5s ease-out; }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    margin: 0 0 5px 0;
+    transition: all 0.5s ease-out; }
+  .menu-btn.close {
+    transform: rotate(180deg); }
+    .menu-btn.close .btn-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.close .btn-line:nth-child(2) {
+      opacity: 0; }
+    .menu-btn.close .btn-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px); }
+
 /*!
  * animate.css -https://daneden.github.io/animate.css/
  * Version - 3.7.2
@@ -5,7 +29,6 @@
  *
  * Copyright (c) 2019 Daniel Eden
  */
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
 @-webkit-keyframes bounce {
   from,
   20%,
@@ -3065,7 +3088,27 @@ footer {
       width: 100%;
       margin: 0 auto; }
     .campground-detail-section .campground-detail-content {
-      text-align: center; } }
+      text-align: center; }
+  .menu-btn {
+    display: block; }
+  .menu {
+    align-items: flex-start;
+    justify-content: flex-start; }
+    .menu .menu-nav {
+      flex-direction: column;
+      margin-left: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      height: 0px;
+      transition: all 0.5s ease-out; }
+      .menu .menu-nav.show {
+        opacity: 1;
+        visibility: visible;
+        height: 100%; }
+      .menu .menu-nav .nav-item {
+        margin-bottom: 1rem; }
+        .menu .menu-nav .nav-item .nav-link {
+          padding: 0.6rem 1.2rem; } }
 
 @media screen and (max-width: 500px) {
   .section-campgrounds .campgrounds-container {
