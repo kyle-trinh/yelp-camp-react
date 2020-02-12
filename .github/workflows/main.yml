@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        
+    - uses: akhileshns/heroku-deploy@v3.0.0 # This is the action
+      with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "yelp-camp-react" #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+#           buildpack: "SOME BUILDPACK" #OPTIONAL
+#           branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
+#           dontuseforce: false #OPTIONAL and DEFAULT - false
+#           usedocker: false #OPTIONAL and DEFAULT - false
