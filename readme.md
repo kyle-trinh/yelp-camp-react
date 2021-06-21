@@ -1,10 +1,42 @@
 # YelpCamp
 
-> A MERN Stack Application that allows user to create, read, update, and delete camp ground information
+A MERN Stack Application that allows user to create, read, update, and delete campground information
 
-![YelpCamp Screenshot](./img/screenshot.png)
+## Project Screen Shot(s)
 
-## Features
+![YelpCamp Screenshot](./images/screenshot.png)
+![Screenshot 2](./images/photo2.PNG)
+![Screenshot 3](./images/photo3.PNG)
+
+## Installation and Setup Instructions
+
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
+
+Installation:
+
+`npm install`
+
+To Start Server in Development mode:
+
+`npm run server`
+
+To develop the client, cwd into client:
+
+`cd client`
+
+Installation:
+
+`npm install`
+
+To Start Client in Development mode:
+
+`npm run start`
+
+To compile Sass to CSS:
+
+`npm run sass`
+
+## Features:
 
 <ul>
 <li>Authentication</li>
@@ -27,25 +59,7 @@
 <li>Responsive Web Design
 </ul>
 
-## Getting Started
-
-### Clone or download this repository
-
-> git clone https://github.com/binhthaitrinh/yelp-camp-react.git
-
-### Install dependencies
-
-> npm install
-
-Change cwd to client and run
-
-> npm install
-
-### Run on local machine
-
-> npm run start
-
-## Built with
+## Technologies:
 
 ### Front-end:
 
@@ -62,6 +76,8 @@ Change cwd to client and run
 - mongoose
 - moment
 
-## License
+## Reflection
 
-MIT
+After finishing with the <a href="https://www.udemy.com/course/the-web-developer-bootcamp/">all-time famous Web Development Course</a> by Colt Steele, and the <a href="https://www.udemy.com/course/mern-stack-front-to-back/">MERN Stack Front To Back: Full Stack React, Redux & Node.js</a> by my favorite online instructor Brad Traversy, I wanted to start building something that allowed me to practice my Web Development skills. That was when I tried to take the tech stacks from the later course to re-implement the big project on the first course, and Yelp Camp React was born. The application was a fusion of my two most favorite courses back then.
+
+The most challenging aspect of this project was my unfamiliarity with Javascript higher-order functions(such as `.map()`, `.filter()`, etc.) back then. It was also my mistake that I tried to learn new technologies too fast, without looking back and review what I just learned. Instead, I kept consuming the knowledge passively without actively understanding the reasoning behind certain functionalities. It was not until I tried building a project that I finally realized my mistakes and later tried to understand the basics before moving on to more complicated materials.
